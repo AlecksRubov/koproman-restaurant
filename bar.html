@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Барная карта | Ресторан "Копроман"</title>
+    <meta name="description" content="Авторские коктейли и премиальные напитки в баре ресторана">
+    
+    <!-- Иконки и PWA -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/svg+xml" href="img/icons/favicon.svg">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#2A9D8F">
+
+    <!-- Стили -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="img/logo.webp" alt="Копроман" width="160" loading="lazy">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="menu.html" class="nav-item">Меню</a></li>
+                <li><a href="bar.html" class="nav-item active">Бар</a></li>
+                <li><a href="tea.html" class="nav-item">Чай</a></li>
+                <li><a href="kids.html" class="nav-item">Детское</a></li>
+                <li><a href="booking.html" class="nav-item cta-button">Бронирование</a></li>
+            </ul>
+            
+            <button class="mobile-menu-toggle" aria-label="Открыть меню">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="bar-page">
+        <section class="drink-categories">
+            <div class="category-filter">
+                <button class="filter-btn active" data-category="all">Все</button>
+                <button class="filter-btn" data-category="cocktails">Коктейли</button>
+                <button class="filter-btn" data-category="wine">Вино</button>
+                <button class="filter-btn" data-category="whiskey">Виски</button>
+                <button class="filter-btn" data-category="non-alc">Безалкогольные</button>
+            </div>
+
+            <div class="drinks-grid">
+                <!-- Коктейли -->
+                <article class="drink-item" data-category="cocktails">
+                    <div class="item-header">
+                        <h3 class="item-title">Негрони</h3>
+                        <span class="item-price">890 ₽</span>
+                    </div>
+                    <img src="img/bar/negroni.webp" alt="Коктейль Негрони" loading="lazy">
+                    <div class="item-details">
+                        <p class="composition">Джин, красный вермут, кампари</p>
+                        <div class="specs">
+                            <span class="volume">150 мл</span>
+                            <span class="alc">28%</span>
+                        </div>
+                    </div>
+                    <div class="signature-badge">Фишка бара</div>
+                </article>
+
+                <!-- Вино -->
+                <article class="drink-item" data-category="wine">
+                    <div class="item-header">
+                        <h3 class="item-title">Château Margaux 2015</h3>
+                        <span class="item-price">12 500 ₽</span>
+                    </div>
+                    <img src="img/bar/margaux.webp" alt="Вино Château Margaux" loading="lazy">
+                    <div class="item-details">
+                        <p class="composition">Красное сухое, Бордо</p>
+                        <div class="specs">
+                            <span class="volume">750 мл</span>
+                            <span class="alc">13%</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Виски -->
+                <article class="drink-item" data-category="whiskey">
+                    <div class="item-header">
+                        <h3 class="item-title">Macallan 18 Years</h3>
+                        <span class="item-price">8 900 ₽</span>
+                    </div>
+                    <img src="img/bar/macallan.webp" alt="Виски Macallan" loading="lazy">
+                    <div class="item-details">
+                        <p class="composition">Одномолтовый, Шотландия</p>
+                        <div class="specs">
+                            <span class="volume">50 мл</span>
+                            <span class="alc">43%</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Еще 10-15 аналогичных позиций -->
+            </div>
+        </section>
+
+        <section class="cocktail-masters">
+            <h2 class="section-title">Наши бармены</h2>
+            <div class="masters-grid">
+                <div class="master-card">
+                    <img src="img/bar/bartender1.webp" alt="Андрей Петров" loading="lazy">
+                    <h3>Андрей Петров</h3>
+                    <p>Главный бармен, 12 лет опыта</p>
+                    <div class="awards">
+                        <span>🥇 World Class 2022</span>
+                        <span>🏆 Diageo Reserve Champion</span>
+                    </div>
+                </div>
+
+                <div class="master-card">
+                    <img src="img/bar/bartender2.webp" alt="Мария Иванова" loading="lazy">
+                    <h3>Мария Иванова</h3>
+                    <p>Миксолог, специалист по авторским коктейлям</p>
+                    <div class="awards">
+                        <span>🍸 BACARDÍ Legacy Finalist</span>
+                        <span>🏅 Russian Cocktail Challenge Winner</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="download-menu">
+            <h2 class="section-title">Скачать полную барную карту</h2>
+            <a href="pdf/bar-menu.pdf" download class="pdf-download">
+                <svg class="pdf-icon"><!-- SVG код иконки --></svg>
+                Барная карта (3.2 MB)
+            </a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <!-- Повтор футера из index.html -->
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

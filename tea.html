@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чайная карта | Ресторан "Копроман"</title>
+    <meta name="description" content="Эксклюзивные сорта чая и традиционные чайные церемонии">
+    
+    <!-- Иконки и PWA -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/svg+xml" href="img/icons/favicon.svg">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#2A9D8F">
+
+    <!-- Стили -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="img/logo.webp" alt="Копроман" width="160" loading="lazy">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="menu.html" class="nav-item">Меню</a></li>
+                <li><a href="bar.html" class="nav-item">Бар</a></li>
+                <li><a href="tea.html" class="nav-item active">Чай</a></li>
+                <li><a href="kids.html" class="nav-item">Детское</a></li>
+                <li><a href="booking.html" class="nav-item cta-button">Бронирование</a></li>
+            </ul>
+            
+            <button class="mobile-menu-toggle" aria-label="Открыть меню">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="tea-page">
+        <section class="tea-categories">
+            <div class="category-filter">
+                <button class="filter-btn active" data-category="all">Все</button>
+                <button class="filter-btn" data-category="green">Зеленый</button>
+                <button class="filter-btn" data-category="black">Черный</button>
+                <button class="filter-btn" data-category="oolong">Улун</button>
+                <button class="filter-btn" data-category="herbal">Травяной</button>
+            </div>
+
+            <div class="tea-grid">
+                <!-- Зеленый чай -->
+                <article class="tea-item" data-category="green">
+                    <div class="item-header">
+                        <h3 class="item-title">Лунцзин</h3>
+                        <span class="item-price">950 ₽</span>
+                    </div>
+                    <img src="img/tea/longjing.webp" alt="Чай Лунцзин" loading="lazy">
+                    <div class="item-details">
+                        <p class="origin">Китай, провинция Чжэцзян</p>
+                        <div class="specs">
+                            <span class="temperature">70-80°C</span>
+                            <span class="volume">200 мл</span>
+                        </div>
+                        <p class="description">Знаменитый "Колодец дракона" с нежным каштановым ароматом</p>
+                    </div>
+                    <div class="exclusive-badge">Эксклюзив</div>
+                </article>
+
+                <!-- Черный чай -->
+                <article class="tea-item" data-category="black">
+                    <div class="item-header">
+                        <h3 class="item-title">Ассам Дижу</h3>
+                        <span class="item-price">850 ₽</span>
+                    </div>
+                    <img src="img/tea/assam.webp" alt="Чай Ассам" loading="lazy">
+                    <div class="item-details">
+                        <p class="origin">Индия, Ассам</p>
+                        <div class="specs">
+                            <span class="temperature">95°C</span>
+                            <span class="volume">300 мл</span>
+                        </div>
+                        <p class="description">Мальтийский букет с медовыми нотками</p>
+                    </div>
+                </article>
+
+                <!-- Улун -->
+                <article class="tea-item" data-category="oolong">
+                    <div class="item-header">
+                        <h3 class="item-title">Да Хун Пао</h3>
+                        <span class="item-price">1 500 ₽</span>
+                    </div>
+                    <img src="img/tea/dahongpao.webp" alt="Чай Да Хун Пао" loading="lazy">
+                    <div class="item-details">
+                        <p class="origin">Китай, Уишань</p>
+                        <div class="specs">
+                            <span class="temperature">90-95°C</span>
+                            <span class="volume">150 мл</span>
+                        </div>
+                        <p class="description">Легендарный "Большой красный халат" с минеральным послевкусием</p>
+                    </div>
+                </article>
+
+                <!-- Еще 10-15 чайных позиций -->
+            </div>
+        </section>
+
+        <section class="tea-accessories">
+            <h2 class="section-title">Чайные аксессуары</h2>
+            <div class="accessories-grid">
+                <div class="accessory-card">
+                    <img src="img/tea/teapot.webp" alt="Фарфоровый чайник" loading="lazy">
+                    <h3>Чайник Исин</h3>
+                    <p>Красная глина, ручная работа</p>
+                    <div class="price">12 000 ₽</div>
+                </div>
+
+                <div class="accessory-card">
+                    <img src="img/tea/cups.webp" alt="Чайные пары" loading="lazy">
+                    <h3>Бисквитные чашки</h3>
+                    <p>Набор из 6 предметов</p>
+                    <div class="price">8 500 ₽</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tea-ceremony">
+            <h2 class="section-title">Чайные церемонии</h2>
+            <div class="ceremony-types">
+                <div class="ceremony-card">
+                    <img src="img/tea/gongfu.webp" alt="Гунфу Ча" loading="lazy">
+                    <h3>Китайская Гунфу Ча</h3>
+                    <p>Традиционная церемония с улунами</p>
+                    <div class="duration">90 мин | 3500 ₽</div>
+                </div>
+
+                <div class="ceremony-card">
+                    <img src="img/tea/matcha.webp" alt="Японская церемония" loading="lazy">
+                    <h3>Японская чайная церемония</h3>
+                    <p>Приготовление матча по канонам тядо</p>
+                    <div class="duration">120 мин | 4200 ₽</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="download-menu">
+            <h2 class="section-title">Скачать полную чайную карту</h2>
+            <a href="pdf/tea-menu.pdf" download class="pdf-download">
+                <svg class="pdf-icon"><!-- SVG код иконки --></svg>
+                Чайная карта (2.5 MB)
+            </a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <!-- Повтор футера из index.html -->
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

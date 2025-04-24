@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ресторан "Копроман" | Главная</title>
+    <meta name="description" content="Авторская кухня от шефа с возможностью онлайн-бронирования">
+
+    <!-- Иконки и PWA -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/svg+xml" href="img/icons/favicon.svg">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#2A9D8F">
+
+    <!-- Стили -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="img/logo.webp" alt="Копроман" width="160" loading="lazy">
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="menu.html" class="nav-item">Меню</a></li>
+                <li><a href="bar.html" class="nav-item">Барная карта</a></li>
+                <li><a href="events.html" class="nav-item">Мероприятия</a></li>
+                <li><a href="booking.html" class="nav-item cta-button">Бронирование</a></li>
+            </ul>
+
+            <button class="mobile-menu-toggle" aria-label="Открыть меню">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </button>
+
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <video class="hero-video" autoplay muted loop playsinline poster="img/hero-poster.jpg">
+                <source src="video/hero-bg.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+
+            <div class="hero-content">
+                <h1 class="hero-title">Гастрономическое путешествие</h1>
+                <p class="hero-subtitle">Авторская кухня от шефа-повара Михаила Петрова</p>
+                <a href="booking.html" class="cta-button">Забронировать столик →</a>
+            </div>
+        </section>
+
+        <section class="signature-dishes">
+            <h2 class="section-title">Фирменные блюда</h2>
+            <div class="dishes-grid">
+                <article class="dish-card">
+                    <img src="img/dishes/duck-confit.webp" alt="Утиный конфи" loading="lazy">
+                    <h3>Утиный конфи</h3>
+                    <p>С картофельным гратеном и вишнёвым соусом</p>
+                    <div class="price">1890 ₽</div>
+                </article>
+
+                <article class="dish-card">
+                    <img src="img/dishes/beef-tartare.webp" alt="Тартар из говядины" loading="lazy">
+                    <h3>Тартар из мраморной говядины</h3>
+                    <p>С трюфельным майонезом и перепелиным яйцом</p>
+                    <div class="price">1650 ₽</div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="contact-info">
+                <h4>Контакты</h4>
+                <p>Москва, ул. Гастрономическая, 15</p>
+                <p>Телефон: <a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+                <p>Email: <a href="mailto:info@koproman.ru">info@koproman.ru</a></p>
+            </div>
+
+            <div class="social-links">
+                <h4>Мы в соцсетях</h4>
+                <a href="#" class="social-icon" target="_blank">Instagram</a>
+                <a href="#" class="social-icon" target="_blank">Facebook</a>
+                <a href="#" class="social-icon" target="_blank">Telegram</a>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>© 2024 Ресторан "Копроман". Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>

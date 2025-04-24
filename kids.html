@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детское меню | Ресторан "Копроман"</title>
+    <meta name="description" content="Специальное меню и развлечения для маленьких гостей">
+    
+    <!-- Иконки и PWA -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/svg+xml" href="img/icons/favicon.svg">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#2A9D8F">
+
+    <!-- Стили -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="img/logo.webp" alt="Копроман" width="160" loading="lazy">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="menu.html" class="nav-item">Меню</a></li>
+                <li><a href="bar.html" class="nav-item">Бар</a></li>
+                <li><a href="tea.html" class="nav-item">Чай</a></li>
+                <li><a href="kids.html" class="nav-item active">Детское</a></li>
+                <li><a href="booking.html" class="nav-item cta-button">Бронирование</a></li>
+            </ul>
+            
+            <button class="mobile-menu-toggle" aria-label="Открыть меню">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="kids-page">
+        <section class="kids-menu">
+            <h2 class="section-title">Детское меню</h2>
+            <div class="age-filter">
+                <button class="filter-btn active" data-age="all">Все возрасты</button>
+                <button class="filter-btn" data-age="3-6">3-6 лет</button>
+                <button class="filter-btn" data-age="7-12">7-12 лет</button>
+            </div>
+
+            <div class="menu-grid">
+                <!-- Для малышей -->
+                <article class="kids-item" data-age="3-6">
+                    <div class="item-header">
+                        <h3 class="item-title">Куриные наггетсы</h3>
+                        <div class="age-badge">3+</div>
+                    </div>
+                    <img src="img/kids/nuggets.webp" alt="Куриные наггетсы" loading="lazy">
+                    <div class="item-details">
+                        <p class="description">С домашним картофельным пюре и овощами</p>
+                        <div class="nutrition-info">
+                            <span class="price">490 ₽</span>
+                            <span class="allergens">🥛 🥚</span>
+                        </div>
+                    </div>
+                    <div class="toy-badge">+ игрушка</div>
+                </article>
+
+                <!-- Для школьников -->
+                <article class="kids-item" data-age="7-12">
+                    <div class="item-header">
+                        <h3 class="item-title">Мини-бургер</h3>
+                        <div class="age-badge">7+</div>
+                    </div>
+                    <img src="img/kids/burger.webp" alt="Детский бургер" loading="lazy">
+                    <div class="item-details">
+                        <p class="description">С говяжьей котлетой и овощами</p>
+                        <div class="nutrition-info">
+                            <span class="price">650 ₽</span>
+                            <span class="allergens">🥩 🥖</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Десерты -->
+                <article class="kids-item" data-age="all">
+                    <div class="item-header">
+                        <h3 class="item-title">Фруктовый микс</h3>
+                        <div class="age-badge">1+</div>
+                    </div>
+                    <img src="img/kids/fruits.webp" alt="Фруктовый микс" loading="lazy">
+                    <div class="item-details">
+                        <p class="description">Сезонные фрукты с йогуртовым соусом</p>
+                        <div class="nutrition-info">
+                            <span class="price">390 ₽</span>
+                            <span class="allergens">🍓 🥝</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="kids-activities">
+            <h2 class="section-title">Развлечения для детей</h2>
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <img src="img/kids/playroom.webp" alt="Игровая зона" loading="lazy">
+                    <h3>Детская игровая зона</h3>
+                    <ul class="features">
+                        <li>🪀 Безопасные игрушки</li>
+                        <li>🎨 Зона творчества</li>
+                        <li>📚 Детская библиотека</li>
+                    </ul>
+                </div>
+
+                <div class="activity-card">
+                    <img src="img/kids/animator.webp" alt="Аниматоры" loading="lazy">
+                    <h3>Профессиональные аниматоры</h3>
+                    <ul class="features">
+                        <li>🤹♂️ Интерактивные шоу</li>
+                        <li>🎭 Кукольный театр</li>
+                        <li>🎪 Творческие мастер-классы</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="safety-info">
+            <h2 class="section-title">Безопасность и качество</h2>
+            <div class="safety-grid">
+                <div class="safety-item">
+                    <img src="img/kids/organic.webp" alt="Органик" loading="lazy">
+                    <h3>100% органические продукты</h3>
+                    <p>Используем только сертифицированные ингредиенты</p>
+                </div>
+
+                <div class="safety-item">
+                    <img src="img/kids/allergy.webp" alt="Аллергены" loading="lazy">
+                    <h3>Контроль аллергенов</h3>
+                    <p>Подробная маркировка блюд и возможность замены</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="download-menu">
+            <h2 class="section-title">Скачать детское меню</h2>
+            <a href="pdf/kids-menu.pdf" download class="pdf-download">
+                <svg class="pdf-icon"><!-- SVG код иконки --></svg>
+                Детское меню (1.8 MB)
+            </a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <!-- Повтор футера из index.html -->
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бронирование | Ресторан "Копроман"</title>
+    <meta name="description" content="Онлайн бронирование столиков в ресторане авторской кухни">
+    
+    <!-- Иконки и PWA -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/svg+xml" href="img/icons/favicon.svg">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#2A9D8F">
+
+    <!-- Стили -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Яндекс Карты -->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ВАШ_API_КЛЮЧ&lang=ru_RU"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="img/logo.webp" alt="Копроман" width="160" loading="lazy">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="menu.html" class="nav-item">Меню</a></li>
+                <li><a href="bar.html" class="nav-item">Бар</a></li>
+                <li><a href="tea.html" class="nav-item">Чай</a></li>
+                <li><a href="kids.html" class="nav-item">Детское</a></li>
+                <li><a href="booking.html" class="nav-item active">Бронирование</a></li>
+            </ul>
+            
+            <button class="mobile-menu-toggle" aria-label="Открыть меню">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="booking-page">
+        <div class="booking-stepper">
+            <div class="step active" data-step="1">1. Дата и время</div>
+            <div class="step" data-step="2">2. Выбор столика</div>
+            <div class="step" data-step="3">3. Подтверждение</div>
+        </div>
+
+        <form class="booking-form" id="bookingForm">
+            <!-- Шаг 1 - Дата и время -->
+            <div class="form-step active" data-step="1">
+                <h2>Выберите дату и время</h2>
+                
+                <div class="form-group">
+                    <label>Дата бронирования:</label>
+                    <input type="date" id="bookingDate" required 
+                        min="<?= date('Y-m-d') ?>" 
+                        max="<?= date('Y-m-d', strtotime('+3 months')) ?>">
+                </div>
+
+                <div class="form-group">
+                    <label>Время:</label>
+                    <select id="bookingTime" required>
+                        <option value="18:00">18:00</option>
+                        <option value="19:30">19:30</option>
+                        <option value="21:00">21:00</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Количество гостей:</label>
+                    <input type="number" id="guests" min="1" max="12" value="2" required>
+                </div>
+
+                <div class="step-actions">
+                    <button type="button" class="next-step">Далее →</button>
+                </div>
+            </div>
+
+            <!-- Шаг 2 - Выбор столика -->
+            <div class="form-step" data-step="2">
+                <h2>Выберите столик</h2>
+                
+                <div class="tables-grid" id="tablesContainer">
+                    <!-- Столы генерируются через JS -->
+                </div>
+
+                <div class="table-info">
+                    <div class="table-legenda">
+                        <span class="available">Доступно</span>
+                        <span class="selected">Выбрано</span>
+                        <span class="booked">Занято</span>
+                    </div>
+                </div>
+
+                <div class="step-actions">
+                    <button type="button" class="prev-step">← Назад</button>
+                    <button type="button" class="next-step">Далее →</button>
+                </div>
+            </div>
+
+            <!-- Шаг 3 - Подтверждение -->
+            <div class="form-step" data-step="3">
+                <h2>Подтверждение брони</h2>
+                
+                <div class="booking-summary">
+                    <p><strong>Дата:</strong> <span id="summaryDate"></span></p>
+                    <p><strong>Время:</strong> <span id="summaryTime"></span></p>
+                    <p><strong>Гости:</strong> <span id="summaryGuests"></span></p>
+                    <p><strong>Столик:</strong> <span id="summaryTable"></span></p>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" placeholder="Ваше имя" id="clientName" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="tel" placeholder="Телефон" id="clientPhone" 
+                        pattern="\+7\s?[0-9]{3}\s?[0-9]{3}\s?[0-9]{2}\s?[0-9]{2}" 
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <textarea placeholder="Особые пожелания" id="comments"></textarea>
+                </div>
+
+                <div class="step-actions">
+                    <button type="button" class="prev-step">← Назад</button>
+                    <button type="submit">Подтвердить бронь</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="map-container">
+            <h2>Мы находимся</h2>
+            <div id="yandexMap" style="width: 100%; height: 400px"></div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="contact-info">
+                <h4>Контакты</h4>
+                <p>Москва, ул. Гастрономическая, 15</p>
+                <p>Телефон: <a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+                <p>Email: <a href="mailto:info@koproman.ru">info@koproman.ru</a></p>
+            </div>
+            <div class="social-links">
+                <!-- Повтор социальных ссылок из index.html -->
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Инициализация карты
+        ymaps.ready(initMap);
+        function initMap() {
+            const map = new ymaps.Map('yandexMap', {
+                center: [55.751574, 37.573856],
+                zoom: 16,
+                controls: ['zoomControl']
+            });
+
+            const placemark = new ymaps.Placemark([55.751574, 37.573856], {
+                hintContent: 'Копроман',
+                balloonContent: 'Ресторан авторской кухни'
+            }, {
+                iconLayout: 'default#image',
+                iconImageHref: 'img/map-marker.png',
+                iconImageSize: [40, 40]
+            });
+
+            map.geoObjects.add(placemark);
+        }
+
+        // Логика бронирования
+        class BookingSystem {
+            constructor() {
+                this.steps = document.querySelectorAll('.form-step');
+                this.currentStep = 1;
+                this.tables = this.generateTables();
+                this.init();
+            }
+
+            init() {
+                this.renderTables();
+                this.setupEventListeners();
+                this.updateStepper();
+            }
+
+            generateTables() {
+                return [
+                    {id: 1, seats: 2, booked: false},
+                    {id: 2, seats: 4, booked: false},
+                    {id: 3, seats: 6, booked: true},
+                    {id: 4, seats: 4, booked: false},
+                    {id: 5, seats: 2, booked: true}
+                ];
+            }
+
+            renderTables() {
+                const container = document.getElementById('tablesContainer');
+                container.innerHTML = this.tables.map(table => `
+                    <div class="table-item ${table.booked ? 'booked' : ''}" 
+                        data-id="${table.id}" 
+                        data-seats="${table.seats}"
+                        ${table.booked ? 'aria-disabled="true"' : ''}>
+                        <div class="table-number">Стол ${table.id}</div>
+                        <div class="table-seats">${table.seats} персон</div>
+                    </div>
+                `).join('');
+            }
+
+            setupEventListeners() {
+                // Обработчики шагов
+                document.querySelectorAll('.next-step').forEach(btn => {
+                    btn.addEventListener('click', () => this.nextStep());
+                });
+
+                document.querySelectorAll('.prev-step').forEach(btn => {
+                    btn.addEventListener('click', () => this.prevStep());
+                });
+
+                // Выбор столиков
+                document.querySelectorAll('.table-item:not(.booked)').forEach(item => {
+                    item.addEventListener('click', () => this.selectTable(item));
+                });
+
+                // Отправка формы
+                document.getElementById('bookingForm').addEventListener('submit', e => {
+                    e.preventDefault();
+                    this.handleSubmit();
+                });
+            }
+
+            selectTable(table) {
+                document.querySelectorAll('.table-item').forEach(t => 
+                    t.classList.remove('selected'));
+                table.classList.add('selected');
+            }
+
+            nextStep() {
+                if (this.validateStep()) {
+                    this.currentStep++;
+                    this.updateStepper();
+                    if(this.currentStep === 3) this.updateSummary();
+                }
+            }
+
+            prevStep() {
+                this.currentStep--;
+                this.updateStepper();
+            }
+
+            validateStep() {
+                switch(this.currentStep) {
+                    case 1: return this.validateDateTime();
+                    case 2: return this.validateTableSelection();
+                    default: return true;
+                }
+            }
+
+            validateDateTime() {
+                const date = document.getElementById('bookingDate').value;
+                const time = document.getElementById('bookingTime').value;
+                return !!date && !!time;
+            }
+
+            validateTableSelection() {
+                return !!document.querySelector('.table-item.selected');
+            }
+
+            updateStepper() {
+                document.querySelectorAll('.step').forEach((step, index) => {
+                    step.classList.toggle('active', index === this.currentStep - 1);
+                });
+
+                this.steps.forEach((step, index) => {
+                    step.classList.toggle('active', index === this.currentStep - 1);
+                });
+            }
+
+            updateSummary() {
+                document.getElementById('summaryDate').textContent = 
+                    document.getElementById('bookingDate').value;
+                document.getElementById('summaryTime').textContent = 
+                    document.getElementById('bookingTime').value;
+                document.getElementById('summaryGuests').textContent = 
+                    document.getElementById('guests').value;
+                document.getElementById('summaryTable').textContent = 
+                    document.querySelector('.table-item.selected')?.dataset.id || 'Не выбран';
+            }
+
+            handleSubmit() {
+                const formData = {
+                    date: document.getElementById('bookingDate').value,
+                    time: document.getElementById('bookingTime').value,
+                    guests: document.getElementById('guests').value,
+                    table: document.querySelector('.table-item.selected')?.dataset.id,
+                    name: document.getElementById('clientName').value,
+                    phone: document.getElementById('clientPhone').value,
+                    comments: document.getElementById('comments').value
+                };
+
+                // Здесь должна быть отправка данных на сервер
+                console.log('Данные брони:', formData);
+                alert('Бронь успешно оформлена! Мы свяжемся с вами для подтверждения.');
+            }
+        }
+
+        // Инициализация при загрузке
+        document.addEventListener('DOMContentLoaded', () => {
+            new BookingSystem();
+        });
+    </script>
+</body>
+</html>

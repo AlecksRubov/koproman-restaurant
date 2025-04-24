@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню | Ресторан "Копроман"</title>
+    <meta name="description" content="Авторское меню ресторана с сезонными блюдами и премиальными напитками">
+    
+    <!-- Иконки и PWA -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/svg+xml" href="img/icons/favicon.svg">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#2A9D8F">
+
+    <!-- Стили -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="img/logo.webp" alt="Копроман" width="160" loading="lazy">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="menu.html" class="nav-item active">Меню</a></li>
+                <li><a href="bar.html" class="nav-item">Бар</a></li>
+                <li><a href="tea.html" class="nav-item">Чай</a></li>
+                <li><a href="kids.html" class="nav-item">Детское</a></li>
+                <li><a href="booking.html" class="nav-item cta-button">Бронирование</a></li>
+            </ul>
+            
+            <button class="mobile-menu-toggle" aria-label="Открыть меню">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="menu-page">
+        <section class="menu-categories">
+            <div class="category-filter">
+                <button class="filter-btn active" data-category="all">Все</button>
+                <button class="filter-btn" data-category="main">Основное</button>
+                <button class="filter-btn" data-category="chef">Шеф-выбор</button>
+                <button class="filter-btn" data-category="vegan">Веганское</button>
+            </div>
+
+            <div class="menu-grid">
+                <!-- Основные блюда -->
+                <article class="menu-item" data-category="main">
+                    <div class="item-header">
+                        <h3 class="item-title">Утиный конфи</h3>
+                        <span class="item-price">1890 ₽</span>
+                    </div>
+                    <img src="img/menu/duck-confit.webp" alt="Утиный конфи" loading="lazy">
+                    <p class="item-description">Фермерская утка, томлёная 8 часов, с картофельным гратеном и вишнёвым соусом</p>
+                    <div class="item-details">
+                        <span class="weight">350г</span>
+                        <span class="kcal">650 ккал</span>
+                    </div>
+                </article>
+
+                <!-- Шеф-выбор -->
+                <article class="menu-item chef-special" data-category="chef">
+                    <div class="item-header">
+                        <h3 class="item-title">Тартар из мраморной говядины</h3>
+                        <span class="item-price">2250 ₽</span>
+                    </div>
+                    <img src="img/menu/beef-tartare.webp" alt="Тартар из говядины" loading="lazy">
+                    <p class="item-description">Премиальная говядина Black Angus, трюфельный майонез, перепелиное яйцо</p>
+                    <div class="item-details">
+                        <span class="weight">250г</span>
+                        <span class="kcal">480 ккал</span>
+                    </div>
+                    <div class="chef-badge">Выбор шефа</div>
+                </article>
+
+                <!-- Веганские блюда -->
+                <article class="menu-item" data-category="vegan">
+                    <div class="item-header">
+                        <h3 class="item-title">Рататуй по-провански</h3>
+                        <span class="item-price">1250 ₽</span>
+                    </div>
+                    <img src="img/menu/ratatouille.webp" alt="Рататуй" loading="lazy">
+                    <p class="item-description">Овощи-гриль с соусом песто из базилика и кедровых орехов</p>
+                    <div class="item-details">
+                        <span class="weight">300г</span>
+                        <span class="kcal">320 ккал</span>
+                    </div>
+                </article>
+
+                <!-- Еще 10-15 аналогичных блоков menu-item -->
+            </div>
+        </section>
+
+        <section class="download-menu">
+            <h2 class="section-title">Полное меню в PDF</h2>
+            <div class="pdf-buttons">
+                <a href="pdf/main-menu.pdf" download class="pdf-download">
+                    <svg class="pdf-icon"><!-- SVG код иконки --></svg>
+                    Основное меню (2.1 MB)
+                </a>
+                <a href="pdf/wine-list.pdf" download class="pdf-download">
+                    <svg class="pdf-icon"><!-- SVG код иконки --></svg>
+                    Винная карта (1.8 MB)
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <!-- Повтор футера из index.html -->
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
